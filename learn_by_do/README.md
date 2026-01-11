@@ -1,0 +1,112 @@
+# Learn by Do - Agentic Design Patterns 实践
+
+通过代码实现《Agentic Design Patterns》书中的理论知识。
+
+## 环境配置
+
+本项目使用 **conda** 统一管理 Python 环境。
+
+### 1. 创建 conda 环境
+
+如果 `ai` 环境不存在，创建新环境：
+
+```bash
+conda create -n ai python=3.10 -y
+```
+
+如果环境已存在，可以跳过此步骤。
+
+### 2. 激活环境
+
+```bash
+conda activate ai
+```
+
+### 3. 安装项目
+
+在项目根目录（`learn_by_do/`）下安装项目和依赖：
+
+```bash
+# 安装项目（包含所有依赖和 common 包）
+pip install -e .
+
+# 如果需要开发依赖（测试工具等）
+pip install -e ".[dev]"
+```
+
+**注意**：
+- 使用 `pip install -e .` 安装后，`common` 包可以在任意章节中直接导入，无需手动设置路径
+- 所有依赖定义在 `pyproject.toml` 中，这是现代 Python 项目的标准做法
+
+### 4. 配置环境变量
+
+复制环境变量示例文件并配置：
+
+```bash
+cp env.example .env
+# 编辑 .env 文件，填入你的 API 密钥等信息
+```
+
+## 目录结构
+
+```
+learn_by_do/
+├── common/                          # 公共模块（共享工具、配置等）
+├── chapter-01-prompt-chaining/      # 第1章：提示链
+├── chapter-02-routing/              # 第2章：路由
+├── chapter-03-parallelization/      # 第3章：并行化
+├── chapter-04-reflection/           # 第4章：反思
+├── chapter-05-tool-use/             # 第5章：工具使用
+├── chapter-06-planning/             # 第6章：规划
+├── chapter-07-multi-agent/          # 第7章：多智能体协作
+├── chapter-08-memory/               # 第8章：记忆管理
+├── chapter-09-learning/             # 第9章：学习与适应
+├── chapter-10-mcp/                  # 第10章：模型上下文协议
+├── chapter-11-goal-monitoring/      # 第11章：目标设定与监控
+├── chapter-12-exception-handling/   # 第12章：异常处理与恢复
+├── chapter-13-human-in-loop/        # 第13章：人机协同
+├── chapter-14-rag/                  # 第14章：知识检索（RAG）
+├── chapter-15-a2a/                  # 第15章：智能体间通信（A2A）
+├── chapter-16-resource-aware/       # 第16章：资源感知优化
+├── chapter-17-reasoning/            # 第17章：推理技术
+├── chapter-18-guardrails/           # 第18章：安全防护模式
+├── chapter-19-evaluation/           # 第19章：评估与监控
+├── chapter-20-prioritization/       # 第20章：优先级排序
+├── chapter-21-exploration/          # 第21章：探索与发现
+└── appendix/                        # 附录内容
+    ├── appendix-a-prompting/        # 附录A：高级提示技术
+    ├── appendix-b-interactions/     # 附录B：AI 智能体交互
+    ├── appendix-c-frameworks/       # 附录C：智能体框架
+    ├── appendix-d-agentspace/       # 附录D：AgentSpace
+    ├── appendix-e-cli/              # 附录E：命令行上的 AI 智能体
+    ├── appendix-f-reasoning-engine/ # 附录F：推理引擎内部机制
+    └── appendix-g-coding-agents/    # 附录G：编程智能体
+```
+
+## 使用说明
+
+1. **环境管理**：统一使用 `conda env ai` 环境，所有章节共享
+2. **依赖管理**：统一使用 `pyproject.toml` 管理依赖，所有章节共享
+3. **代码组织**：每个章节目录包含该章节的代码实现
+4. **公共代码**：`common/` 目录存放可复用的公共代码（如 LLM 客户端、工具函数等）
+5. **文档说明**：每个章节目录应包含自己的 README.md 说明具体实现内容
+
+## 快速开始
+
+```bash
+# 1. 创建并激活 conda 环境
+conda create -n ai python=3.10 -y
+conda activate ai
+
+# 2. 安装项目（包含依赖和 common 包）
+cd learn_by_do
+pip install -e .
+
+# 3. 配置环境变量
+cp env.example .env
+# 编辑 .env 文件
+
+# 4. 开始学习某个章节
+cd chapter-01-prompt-chaining
+python prompt_chaining.py
+```
